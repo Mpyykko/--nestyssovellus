@@ -1,0 +1,24 @@
+[
+    {
+        "kysymys": "Jääkiekko vai jalkapallo",
+        "vaihtoehdot": [
+            "Jääkiekko",
+            "Jalkapallo"
+        ],
+        "aanet": [
+            4,
+            5
+        ]
+    },
+    {
+        "kysymys": "Kissa vai koira?",
+        "vaihtoehdot": [
+            "Kissa",
+            "Koira"
+        ],
+        "aanet": [
+            6,
+            1
+        ]
+    }
+]

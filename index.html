@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Indie+Flower&display=swap" rel="stylesheet">
+
+
+    <title>Äänestys</title>
+    
+</head>
+<body>
+    <main>
+        <section>
+            <div class="ylavalikko">
+                <button id="valikkoButton" class="valikkoButton" >Kirjaudu sisään</button>
+                <button id="kirjauduUlos" class="kirjauduUlos" > Kirjaudu ulos</button>
+                <span class="kirjautumisInfo" id="kirjautumisInfo" ></span>
+            </div>
+        </section>
+
+        
+
+        <section>
+
+            <div class="loggausValikko" id="loggausValikko">
+                <h3 style="font-family: inherit; margin-top: 100px;" > Kirjaudu sisään</h3>
+                <label for="tunnus">Käyttäjätunnus:</label>
+                <input class="syottotekstit" type="text" id="tunnus" placeholder="Admin...">
+                <label for="tunnus">Salasana:</label>
+                <input class="syottotekstit" type="password" id="salasana" placeholder="Pass...">
+                <button class="loggausValikkoButtonit" id="yllapitoKirjaudu" >Kirjaudu</button>
+                <button class="loggausValikkoButtonit" id="loggausPoistu" >Poistu</button>
+                <span class="virheilmoitus" id="virheilmoitus" ></span>
+            </div>
+
+        <h1  style="color: white;">Äänestys</h1>
+        <button id="lisaaAanestys" class="lisaaAanestys">Lisää äänestys</button>
+        
+        <div id="aanestyslomake" class="aanestyslomake">
+            <h2 class="lomakeOtsikko" >Lisää uusi äänestys</h2>
+            <input class="syottotekstit" type="text" id="kysymysInput" placeholder="Mistä äänestetään?...">
+            <input class="syottotekstit" type="text" id="vaihtoehto1Input" placeholder="Vaihtoehto 1...">
+            <input class="syottotekstit" type="text" id="vaihtoehto2Input" placeholder="Vaihtoehto 2...">
+            <button class="syottoLisaa" id="lisaaKysymys">Lisää äänestys</button>
+            <button class="poistuLisaa" id="poistu">Poistu</button>
+
+        </div>
+          
+          <div id="kysymykset" class="aanestyscontainer">
+       
+          </div>
+
+          
+      
+        </section>
+
+    </main>
+    <script src="script.js" ></script>
+</body>
+</html>
