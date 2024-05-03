@@ -1,10 +1,4 @@
 
-
-// käyttäjän rooli
-let onYllapitaja = false;
-
-
-
 // haetaan äänestykset, jos niitä on tallennettu ja jos ei niin palautuu tyhjä lista
 let kysymykset = JSON.parse(localStorage.getItem('kysymykset')) || [];
 
@@ -60,12 +54,14 @@ yllapitoKirjauduButton.addEventListener('click', function() {
     let salasana = document.getElementById('salasana').value;
     
     if (tunnus === 'Admin' && salasana === 'Pass') {
-        onYllapitaja = true;
         document.getElementById('virheilmoitus').innerHTML = '';
         kirjautuneena.innerHTML= `Kirjautuneena: ${tunnus}`;
         lisaaAanestysButton.style.display = 'flex';
         kirjauduUlos.style.display = 'block';
         valikkoButton.style.display = 'none';
+        lisaaAanestysButton.style.display = 'flex';
+      
+    
 
         suljeJaTyhjenna();
         paivitaNakyma();
@@ -148,53 +144,46 @@ function lisaaAanestys() {
 
 // funktio päivitetään näkymä
 function paivitaNakyma() {
-  if(kysymykset.length === 0){
+  if (kysymykset.length === 0) {
     lisaaAanestysButton.style.display = 'flex';
-}
+  }
   kysymyksetDiv.innerHTML = '';
 
-
   kysymykset.forEach((kysymys, index) => {
-      const div = document.createElement('div');
-      div.classList.add('yksittainenAanestys');
+    const div = document.createElement('div');
+    div.classList.add('yksittainenAanestys');
 
-      const kaikkiAanet = kysymys.aanet.reduce((a, b) => a + b, 0);
-      const aanet1 = kaikkiAanet > 0 ? (kysymys.aanet[0] / kaikkiAanet * 100).toFixed(1) : 0;
-      const aanet2 = kaikkiAanet > 0 ? (kysymys.aanet[1] / kaikkiAanet * 100).toFixed(1) : 0;
+    const kaikkiAanet = kysymys.aanet.reduce((a, b) => a + b, 0);
+    const aanet1 = kaikkiAanet > 0 ? (kysymys.aanet[0] / kaikkiAanet * 100).toFixed(1) : 0;
+    const aanet2 = kaikkiAanet > 0 ? (kysymys.aanet[1] / kaikkiAanet * 100).toFixed(1) : 0;
 
-      div.innerHTML = `
-        <h3>${kysymys.kysymys}</h3>
-        <div class="vaihtoehto">
-            <button class="aanestysNappi vaihtoehto1Nappi">${kysymys.vaihtoehdot[0]} (${kysymys.aanet[0]} ääntä, ${aanet1}%)</button>
-        </div>
-        <div class="vaihtoehto">
-            <button class="aanestysNappi vaihtoehto2Nappi">${kysymys.vaihtoehdot[1]} (${kysymys.aanet[1]} ääntä, ${aanet2}%)</button>
-        </div>
-      `;
+    div.innerHTML = `
+      <h3>${kysymys.kysymys}</h3>
+      <div class="vaihtoehto">
+        <button class="aanestysNappi vaihtoehto1Nappi">${kysymys.vaihtoehdot[0]} (${kysymys.aanet[0]} ääntä, ${aanet1}%)</button>
+      </div>
+      <div class="vaihtoehto">
+        <button class="aanestysNappi vaihtoehto2Nappi">${kysymys.vaihtoehdot[1]} (${kysymys.aanet[1]} ääntä, ${aanet2}%)</button>
+      </div>
+    `;
 
-      if (onYllapitaja) {
-          
-          div.innerHTML += `<button class="poistaAanestysNappi">Poista äänestys</button>`;
-          lisaaAanestysButton.style.display = 'flex';
-          
-          
-      }
+    // poisto-button tulee vain jos käyttäjä on kirjautunut sisään
+    if (kirjautuneena.innerHTML.includes('Kirjautuneena')) {
+      const poistaButton = document.createElement('button');
+      poistaButton.textContent = 'Poista äänestys';
+      poistaButton.classList.add('poistaAanestysNappi');
+      poistaButton.addEventListener('click', () => poistaAanestys(index));
+      div.appendChild(poistaButton);
+    }
 
-     
+    //tapahtumankäsittelijät
+    div.querySelector('.vaihtoehto1Nappi').addEventListener('click', () => aanesta(index, 0));
+    div.querySelector('.vaihtoehto2Nappi').addEventListener('click', () => aanesta(index, 1));
 
-      // lisää tapahtumankäsittelijät
-      div.querySelector('.vaihtoehto1Nappi').addEventListener('click', () => aanesta(index, 0));
-      div.querySelector('.vaihtoehto2Nappi').addEventListener('click', () => aanesta(index, 1));
-
-      if (onYllapitaja) {
-          div.querySelector('.poistaAanestysNappi').addEventListener('click', () => poistaAanestys(index));
-      
-        }
-
-
-      kysymyksetDiv.appendChild(div);
+    kysymyksetDiv.appendChild(div);
   });
 }
+
 /////////////////////////////////////////////////////////////////////////////
 // ulos kirjautuminen
 const kirjauduUlos = document.getElementById('kirjauduUlos');
