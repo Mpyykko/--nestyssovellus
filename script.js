@@ -1,50 +1,4 @@
-window.addEventListener('load',lataaJson);
 
-
-//// ajax hommaa
-
-function lataaJotain(){
-  console.log('Ladataan jotain');
-
-  let xhttp = new XMLHttpRequest();
-
-  xhttp.open('GET','data.html',true);
-  xhttp.send();
-
-}
-
-function lataaJotainTxt(){
-  console.log('Ladataan txt');
-  let xhttp = new XMLHttpRequest();
-  xhttp.onload = function(){
-
-    console.log(this.responseXML);
-    parseXMLData(this.responseXML);
-
-
-  }
-  xhttp.open('GET','data.txt');
-  xhttp.send();
-}
-
-
-function parseXMLData(){
-
-}
-
-JSONdata = null;
-
-function lataaJson(){
-  let ajax = new XMLHttpRequest();
-  ajax.onload = function(){
-    JSONdata = this.responseText;
-    console.log(JSONdata);
-
-  }
-  ajax.open('GET','data.json', true);
-  ajax.send();
-
-}
 
 // käyttäjän rooli
 let onYllapitaja = false;
@@ -79,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // valikko tulee esille
   valikkoButton.addEventListener('click', function() {
       loggausValikko.style.display = 'flex';
-      lataaJotainTxt();
-      lataaJotain();
+    
     
   });
 
@@ -110,6 +63,10 @@ yllapitoKirjauduButton.addEventListener('click', function() {
         onYllapitaja = true;
         document.getElementById('virheilmoitus').innerHTML = '';
         kirjautuneena.innerHTML= `Kirjautuneena: ${tunnus}`;
+        lisaaAanestysButton.style.display = 'flex';
+        kirjauduUlos.style.display = 'block';
+        valikkoButton.style.display = 'none';
+
         suljeJaTyhjenna();
         paivitaNakyma();
         
@@ -219,8 +176,7 @@ function paivitaNakyma() {
           
           div.innerHTML += `<button class="poistaAanestysNappi">Poista äänestys</button>`;
           lisaaAanestysButton.style.display = 'flex';
-          kirjauduUlos.style.display = 'block';
-          valikkoButton.style.display = 'none';
+          
           
       }
 
