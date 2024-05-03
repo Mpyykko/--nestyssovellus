@@ -8,10 +8,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 151, 68, 0.781);
+    background-color: white;
     color: white;
 }
-
 
 
 main {
@@ -75,7 +74,7 @@ section{
     min-height: 70px;
     margin: 10px 5px 10px 5px;
     border-radius: 10px;
-    background-color: rgb(206, 206, 206);
+    background-color: rgba(17, 107, 1, 0.662);
     box-sizing: border-box;
     text-align: center;
     font-family: inherit;
@@ -96,11 +95,17 @@ section{
     width:90%;
     border-radius: 10px;
     font-family: inherit;
+    border-bottom: 4px solid rgba(1, 1, 1, 0.9);
+    border-right: 4px solid rgba(1, 1, 1, 0.8);
+    color: black;
+    background-color: rgb(207, 207, 207);
   
 }
 .poistaAanestysNappi{
     font-family: inherit;
     margin-bottom: 20px;
+    color: black;
+    font-size: medium;
 }
 
 .aanestyslomake{
@@ -146,9 +151,12 @@ section{
 .kirjautumisInfo{
     
     position: absolute;
-    top: 10px;
+    height: 100%;
+    top: 14px;
+  
     left: 50%;
     transform: translateX(-50%);
+    align-items: center;
  
 
 }
@@ -162,6 +170,7 @@ section{
     background: none;
     border: none;
     right: 10px;
+    align-items: center;
 }
 .kirjauduUlos:hover{
     color: rgba(0, 151, 68, 0.781);
