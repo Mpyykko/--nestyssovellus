@@ -49,6 +49,7 @@ section{
     border: none;
     right: 10px;
     align-items: center;
+    font-size: large;
 }
 .valikkoButton:hover{
     color: rgba(0, 151, 68, 0.781);
@@ -188,6 +189,7 @@ section{
     margin: 0 auto;
     font-size: large;
     color: black;
+    
 }
 
 

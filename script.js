@@ -1,6 +1,6 @@
 
-// haetaan äänestykset, jos niitä on tallennettu ja jos ei niin palautuu tyhjä lista
-let kysymykset = JSON.parse(localStorage.getItem('kysymykset')) || [];
+// haetaan äänestykset, jos niitä on tallennettu 
+let kysymykset = JSON.parse(localStorage.getItem('kysymykset'));
 
 // muuttujat
 const kysymysInput = document.getElementById('kysymysInput');
@@ -144,9 +144,7 @@ function lisaaAanestys() {
 
 // funktio päivitetään näkymä
 function paivitaNakyma() {
-  if (kysymykset.length === 0) {
-    lisaaAanestysButton.style.display = 'flex';
-  }
+ 
   kysymyksetDiv.innerHTML = '';
 
   kysymykset.forEach((kysymys, index) => {
@@ -189,15 +187,17 @@ function paivitaNakyma() {
 const kirjauduUlos = document.getElementById('kirjauduUlos');
 
 
-kirjauduUlos.addEventListener('click', function() {
-    
-    console.log('Toimiiko uloskirjaus?');
-    kirjauduUlos.style.display = 'none';
-    lisaaAanestysButton.style.display = 'none';
-    kirjautuneena.innerHTML = '';
-    valikkoButton.style.display = 'flex';
-    onYllapitaja = false;
-    paivitaNakyma();
+document.addEventListener('DOMContentLoaded', function() {
+ 
+  kirjauduUlos.addEventListener('click', function() {
+      console.log('Toimiiko uloskirjaus?');
+      kirjauduUlos.style.display = 'none';
+      lisaaAanestysButton.style.display = 'none';
+      kirjautuneena.innerHTML = '';
+      valikkoButton.style.display = 'flex';
+
+      paivitaNakyma();
+  });
 });
 
 /////////////////////////////////////////////////////////////////////////////
