@@ -79,13 +79,14 @@ section{
     text-align: center;
     font-family: inherit;
     color: black;
+    border-top: 3px solid rgba(17, 107, 1, 0.8);
+    border-bottom: 3px solid rgba(17, 107, 1, 0.8);
   
 }
 
 
 .vaihtoehto {
     position: relative;
-
     width: 100%;
 }
 .aanestysNappi {
@@ -95,10 +96,12 @@ section{
     width:90%;
     border-radius: 10px;
     font-family: inherit;
-    border-bottom: 4px solid rgba(1, 1, 1, 0.9);
-    border-right: 4px solid rgba(1, 1, 1, 0.8);
+    border-bottom: 4px solid rgba(47, 47, 47);
+    border-right: 3px solid rgba(47, 47, 47);
     color: black;
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(205, 247, 205);
+    font-size: large;
+ 
   
 }
 .poistaAanestysNappi{
@@ -146,6 +149,7 @@ section{
     font-family: inherit;
     margin-top: 20px;
     font-size: large;
+    color: black;
 
 }
 .kirjautumisInfo{
@@ -183,6 +187,7 @@ section{
     font-family: inherit;
     margin: 0 auto;
     font-size: large;
+    color: black;
 }
 
 
@@ -255,6 +260,10 @@ section{
       
         right: 1%;
         font-size: medium;
+    }
+
+    .yksittainenAanestys {
+        max-width: 85%;
     }
    
     
