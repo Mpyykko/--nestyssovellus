@@ -82,6 +82,7 @@ section{
     color: black;
     border-top: 3px solid rgba(17, 107, 1, 0.8);
     border-bottom: 3px solid rgba(17, 107, 1, 0.8);
+    box-shadow: 8px 8px 12px rgba(0, 0, 0);
   
 }
 
@@ -95,13 +96,17 @@ section{
     margin-bottom: 40px;
     height: 50px;
     width:90%;
-    border-radius: 10px;
+    border-radius: 8px;
     font-family: inherit;
-    border-bottom: 4px solid rgba(47, 47, 47);
-    border-right: 3px solid rgba(47, 47, 47);
+    border: none;
     color: black;
     background-color: rgb(205, 247, 205);
     font-size: large;
+    box-shadow: 
+    0 0 5px black,
+    0 0 5px black inset,
+    3px 0 3px rgba(0, 0, 0, 0.527) inset,
+    -3px 0 3px rgba(0, 0, 0, 0.527) inset;
  
   
 }
@@ -158,7 +163,7 @@ section{
     position: absolute;
     height: 100%;
     top: 14px;
-  
+    font-size: large;
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
@@ -176,6 +181,7 @@ section{
     border: none;
     right: 10px;
     align-items: center;
+    font-size: large;
 }
 .kirjauduUlos:hover{
     color: rgba(0, 151, 68, 0.781);
@@ -235,14 +241,14 @@ section{
     .valikkoButton{
         text-indent: -9999px;
         position: absolute;
-        width: 50px;
+        width: 40px;
         border: none;
         background-image: url(images/burgergray.png);
         background-size: 100% 100%;
         background-color: transparent;
-        height: 60%;
+        height: 40%;
         right: 10px;
-        top:8px;
+        top:15px;
     }
 
     .kirjautumisInfo{

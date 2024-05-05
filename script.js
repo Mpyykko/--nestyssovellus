@@ -158,10 +158,10 @@ function paivitaNakyma() {
     div.innerHTML = `
       <h3>${kysymys.kysymys}</h3>
       <div class="vaihtoehto">
-        <button class="aanestysNappi vaihtoehto1Nappi">${kysymys.vaihtoehdot[0]} (${kysymys.aanet[0]} ääntä, ${aanet1}%)</button>
+        <button class="aanestysNappi vaihtoehto1Nappi" style="background: linear-gradient(to right, #4CAF50 ${aanet1}%, #ffffff ${aanet1}%);">${kysymys.vaihtoehdot[0]} (${kysymys.aanet[0]} ääntä, ${aanet1}%)</button>
       </div>
       <div class="vaihtoehto">
-        <button class="aanestysNappi vaihtoehto2Nappi">${kysymys.vaihtoehdot[1]} (${kysymys.aanet[1]} ääntä, ${aanet2}%)</button>
+        <button class="aanestysNappi vaihtoehto2Nappi" style="background: linear-gradient(to right, #4CAF50 ${aanet2}%, #ffffff ${aanet2}%);">${kysymys.vaihtoehdot[1]} (${kysymys.aanet[1]} ääntä, ${aanet2}%)</button>
       </div>
     `;
 
