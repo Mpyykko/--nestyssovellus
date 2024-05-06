@@ -1,5 +1,5 @@
 
-// haetaan äänestykset, jos niitä on tallennettu 
+// tänne äänestykset
 let aanestykset = [];
 
 // muuttujat
@@ -19,7 +19,9 @@ const loggausPoistuButton = document.getElementById('loggausPoistu');
 const yllapitoKirjauduButton = document.getElementById('yllapitoKirjaudu');
   
 
-
+const aanestyslomake = document.getElementById('aanestyslomake');
+aanestyslomake.style.display = 'none';
+lisaaAanestysButton.style.display = 'none';
  
 
   // valikko tulee esille
@@ -65,9 +67,7 @@ yllapitoKirjauduButton.addEventListener('click', function() {
 // lisää äänestys-lomake
 
   
-const aanestyslomake = document.getElementById('aanestyslomake');
-aanestyslomake.style.display = 'none';
-lisaaAanestysButton.style.display = 'none';
+
 
 lisaaAanestysButton.addEventListener('click', function() {
        //näytetään lomake
@@ -160,8 +160,7 @@ function paivitaNakyma() {
       </div>
       <div class="vaihtoehto">
         <button class="aanestysNappi vaihtoehto2Nappi" style="background: linear-gradient(to right, #4CAF50 ${aanet2}%, #ffffff ${aanet2}%);">${kysymys.vaihtoehdot[1]} (${kysymys.aanet[1]} ääntä, ${aanet2}%)</button>
-      </div>
-    `;
+      </div>`;
 
     // poisto-button tulee vain jos käyttäjä on kirjautunut sisään
     if (kirjautuneena.innerHTML.includes('Kirjautuneena')) {
@@ -203,12 +202,12 @@ const kirjauduUlos = document.getElementById('kirjauduUlos');
 function aanesta(kysymysIndexi, vaihtoehtoIndexi) {
   aanestykset[kysymysIndexi].aanet[vaihtoehtoIndexi]++;
   paivitaNakyma();
-  localStorage.setItem('kysymykset', JSON.stringify(aanestykset));
+ 
 }
 
 //poistaa äänestyksen
 function poistaAanestys(indexi) {
   aanestykset.splice(indexi, 1);
   paivitaNakyma();
-  localStorage.setItem('kysymykset', JSON.stringify(aanestykset));
+  
 }
