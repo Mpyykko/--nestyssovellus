@@ -26,4 +26,4 @@
 ## Poikkeuksellinen toiminta
 - Jos käyttäjätunnus tai salasana ei täsmää:
 1. Järjestelmä antaa virheilmoituksen
-2. Ylläpitäjä voi syöttää tunnukset uudestaan tai lisätä uuden ylläpitäjän
+2. Ylläpitäjä voi syöttää tunnukset uudestaan
