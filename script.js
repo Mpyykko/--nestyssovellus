@@ -13,40 +13,25 @@ const lisaaAanestysButton = document.getElementById('lisaaAanestys');
 let kirjautuneena = document.getElementById('kirjautumisInfo');
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  const valikkoButton = document.getElementById('valikkoButton');
-  const loggausValikko = document.getElementById('loggausValikko');
-  const loggausPoistuButton = document.getElementById('loggausPoistu');
-  const yllapitoKirjauduButton = document.getElementById('yllapitoKirjaudu');
+const valikkoButton = document.getElementById('valikkoButton');
+const loggausValikko = document.getElementById('loggausValikko');
+const loggausPoistuButton = document.getElementById('loggausPoistu');
+const yllapitoKirjauduButton = document.getElementById('yllapitoKirjaudu');
   
 
 
-  // ylläpitäjän kirjautuminen
+ 
 
   // valikko tulee esille
   valikkoButton.addEventListener('click', function() {
       loggausValikko.style.display = 'flex';
     
     
-  });
-
-  // valikko sulkeutuu ja kirjautumistiedot tyhjennentään
-  function suljeJaTyhjenna() {
-      loggausValikko.style.display = 'none';
-      document.querySelectorAll('#loggausValikko .syottotekstit').forEach(function(input) {
-          input.value = '';
-      });
-  }
-
-  // tyhjennetään myös virheilmoitus  jos on 
-  loggausPoistuButton.addEventListener('click', function(){
-    document.getElementById('virheilmoitus').innerHTML = '';
-
-    suljeJaTyhjenna();
 
 
-});
+
+
+ // ylläpitäjän kirjautuminen
 
 // tunnusten tarkistus
 yllapitoKirjauduButton.addEventListener('click', function() {
@@ -77,23 +62,20 @@ yllapitoKirjauduButton.addEventListener('click', function() {
 
 });
 
-
-
 // lisää äänestys-lomake
-document.addEventListener('DOMContentLoaded', function() {
-  
-  const aanestyslomake = document.getElementById('aanestyslomake');
-  aanestyslomake.style.display = 'none';
-  lisaaAanestysButton.style.display = 'none';
 
-  lisaaAanestysButton.addEventListener('click', function() {
+  
+const aanestyslomake = document.getElementById('aanestyslomake');
+aanestyslomake.style.display = 'none';
+lisaaAanestysButton.style.display = 'none';
+
+lisaaAanestysButton.addEventListener('click', function() {
        //näytetään lomake
       aanestyslomake.style.display = 'flex';
-  });
+
 
   lisaaKysymysButton.addEventListener('click', function() {
      
-    
       // lisätään äänestys listalle
       lisaaAanestys();
 
@@ -142,6 +124,23 @@ function lisaaAanestys() {
   localStorage.setItem('kysymykset', JSON.stringify(kysymykset));
 }
 
+  // valikko sulkeutuu ja kirjautumistiedot tyhjennentään
+  function suljeJaTyhjenna() {
+    loggausValikko.style.display = 'none';
+    document.querySelectorAll('#loggausValikko .syottotekstit').forEach(function(input) {
+        input.value = '';
+    });
+}
+
+// tyhjennetään myös virheilmoitus  jos on 
+loggausPoistuButton.addEventListener('click', function(){
+  document.getElementById('virheilmoitus').innerHTML = '';
+
+  suljeJaTyhjenna();
+
+
+});
+
 // funktio päivitetään näkymä
 function paivitaNakyma() {
  
@@ -187,8 +186,6 @@ function paivitaNakyma() {
 const kirjauduUlos = document.getElementById('kirjauduUlos');
 
 
-document.addEventListener('DOMContentLoaded', function() {
- 
   kirjauduUlos.addEventListener('click', function() {
       console.log('Toimiiko uloskirjaus?');
       kirjauduUlos.style.display = 'none';
@@ -197,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
       valikkoButton.style.display = 'flex';
 
       paivitaNakyma();
-  });
+
 });
 
 /////////////////////////////////////////////////////////////////////////////
