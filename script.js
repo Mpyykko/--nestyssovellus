@@ -1,6 +1,6 @@
 
 // haetaan äänestykset, jos niitä on tallennettu 
-let kysymykset = JSON.parse(localStorage.getItem('kysymykset'));
+let aanestykset = [];
 
 // muuttujat
 const kysymysInput = document.getElementById('kysymysInput');
@@ -115,13 +115,12 @@ function lisaaAanestys() {
   const vaihtoehto2 = vaihtoehto2Input.value;
 
   // lisätään kysymys listaan
-  kysymykset.push({ kysymys, vaihtoehdot: [vaihtoehto1, vaihtoehto2], aanet: [0, 0] });
+  aanestykset.push({ kysymys, vaihtoehdot: [vaihtoehto1, vaihtoehto2], aanet: [0, 0] });
 
   // päivitetään heti kun uusi äänestys on lisätty
   paivitaNakyma();
 
-  // tallenetaan äänestykset 
-  localStorage.setItem('kysymykset', JSON.stringify(kysymykset));
+
 }
 
   // valikko sulkeutuu ja kirjautumistiedot tyhjennentään
@@ -146,7 +145,7 @@ function paivitaNakyma() {
  
   kysymyksetDiv.innerHTML = '';
 
-  kysymykset.forEach((kysymys, index) => {
+  aanestykset.forEach((kysymys, index) => {
     const div = document.createElement('div');
     div.classList.add('yksittainenAanestys');
 
@@ -202,14 +201,14 @@ const kirjauduUlos = document.getElementById('kirjauduUlos');
 
 // äänestystyksen päivitys
 function aanesta(kysymysIndexi, vaihtoehtoIndexi) {
-  kysymykset[kysymysIndexi].aanet[vaihtoehtoIndexi]++;
+  aanestykset[kysymysIndexi].aanet[vaihtoehtoIndexi]++;
   paivitaNakyma();
-  localStorage.setItem('kysymykset', JSON.stringify(kysymykset));
+  localStorage.setItem('kysymykset', JSON.stringify(aanestykset));
 }
 
 //poistaa äänestyksen
 function poistaAanestys(indexi) {
-  kysymykset.splice(indexi, 1);
+  aanestykset.splice(indexi, 1);
   paivitaNakyma();
-  localStorage.setItem('kysymykset', JSON.stringify(kysymykset));
+  localStorage.setItem('kysymykset', JSON.stringify(aanestykset));
 }
